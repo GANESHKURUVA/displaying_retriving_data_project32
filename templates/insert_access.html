@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Access</title>
+    <style>
+        label{
+            font-style: italic;
+            font-weight: bolder;
+        }
+        fieldset{
+            width: fit-content;
+            background-color: aqua;
+        }
+        #b.hover{
+            color: green;
+        }
+        #b{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <legend>ACCESSRECORDS</legend>
+        <form  method="POST">
+            {% csrf_token %}
+            <fieldset>
+            <label for="name">Name</label>
+            <select name="name" id="name">
+             {% for i in name %}
+             <option value="{{i}}">{{i.name}}</option>
+             {% endfor %}
+            </select><br><br>
+            <label for="author">Author</label>
+            <input type="text" name="author" id="author" ><br><br>
+            <label for="date">date</label>
+            <input type="date" name="date" id="date"><br><br>
+            <input type="submit" value="submit" id="b">
+            </fieldset>
+        </form>
+    </center>
+</body>
+</html>

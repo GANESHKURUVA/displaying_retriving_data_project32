@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>webpage</title>
+    <style>
+        label{
+            font-style: italic;
+            font-weight: bolder;
+        }
+        fieldset{
+            width: fit-content;
+            background-color: aqua;
+        }
+        #b{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <legend>WEBPAGE</legend>
+         <form  method="POST">
+            {% csrf_token %}
+            <fieldset>
+            <label for="topics">Topics</label>
+            <select name="topics" id="topics">
+                {% for i in topics %}
+                <option value="{{i}}">{{i.topic_name}}</option>
+                {% endfor %}
+            </select><br><br>
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name"><br><br>
+            <label for="url">Url</label>
+            <input type="url" name="url" id="url"><br><br>
+            <input type="submit" value="submit" id="b">
+            </fieldset>
+         </form>
+
+    </center>
+</body>
+</html>
